@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>트래킹 + 캠핑</title>
+<style>
+  body { margin: 0; padding: 16px; font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; background: #f6f5f0; color: #222; line-height: 1.5; }
+  main { max-width: 480px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 12px; }
+  h1 small { font-size: 14px; color: #666; font-weight: 400; }
+  h2 { font-size: 15px; margin: 0 0 6px 4px; }
+  .card { background: #fff; border-radius: 12px; padding: 4px 14px; margin-bottom: 12px; }
+  .row { display: flex; gap: 10px; padding: 9px 0; align-items: center; }
+  .row + .row { border-top: 1px solid #eee; }
+  .n { flex: none; width: 22px; height: 22px; border-radius: 50%; background: #2f7d4f; color: #fff; font-size: 12px; text-align: center; line-height: 22px; }
+  .n.alt { background: #aaa; }
+  a { color: #1a6fd1; text-decoration: none; font-weight: 600; }
+  small { color: #777; }
+  .go { color: #2f7d4f; font-size: 13px; padding: 2px 0 2px 32px; }
+  p.note { font-size: 12px; color: #999; margin: 0 0 12px; }
+  label { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 14px; }
+  label + label { border-top: 1px solid #eee; }
+  input { width: 20px; height: 20px; accent-color: #2f7d4f; }
+  input:checked + span { text-decoration: line-through; color: #aaa; }
+</style>
+</head>
+<body>
+<main>
+  <h1>⛰️ 트래킹 + 캠핑 <small>10/3(토)~10/4(일)</small></h1>
+
+  <h2>📍 가는 곳</h2>
+  <div class="card">
+    <div class="row"><span class="n">1</span><span><a href="https://naver.me/xWTn9v71">석수체육공원</a> <small>06:00 집합·출발</small></span></div>
+    <div class="go">🚗 약 2시간 30분</div>
+    <div class="row"><span class="n">2</span><span><a href="https://naver.me/GPdOutDY">반야사 주차장</a> <small>월류봉 둘레길 트래킹</small></span></div>
+    <div class="go">🚗 약 15분</div>
+    <div class="row"><span class="n">3</span><span><a href="https://naver.me/5hum5G7u">인터식당</a> <small>점심 · 올뱅이(다슬기) 국밥 🍚</small></span></div>
+    <div class="go">🚗 약 25분</div>
+    <div class="row"><span class="n">4</span><span><a href="https://naver.me/FTXwPK8f">영동와인터널</a></span></div>
+    <div class="go">🚗 약 10분</div>
+    <div class="row"><span class="n">5</span><span><a href="https://naver.me/G7VOOvvM">하나로마트 영동농협</a> <small>장보기</small></span></div>
+    <div class="go">🚗 약 2시간 30분</div>
+    <div class="row"><span class="n">6</span><span><a href="https://naver.me/x4FsS2ib">월악파인오토캠핑장</a> <small>캠핑 (D-01, D-04) 🔥</small></span></div>
+  </div>
+  <p class="note">※ 소요시간은 대략적인 예상이에요. 정체나 휴게소 시간에 따라 달라져요.</p>
+
+  <h2>🎒 준비물</h2>
+  <div class="card" id="list">
+    <label><input type="checkbox"><span>수건</span></label>
+    <label><input type="checkbox"><span>슬리퍼</span></label>
+    <label><input type="checkbox"><span>두꺼운 옷</span></label>
+    <label><input type="checkbox"><span>세면도구 (칫솔·치약)</span></label>
+  </div>
+</main>
+
+<script>
+  var boxes = document.querySelectorAll('#list input');
+  boxes.forEach(function (b, i) {
+    try { b.checked = localStorage.getItem('camp' + i) === '1'; } catch (e) {}
+    b.addEventListener('change', function () {
+      try { localStorage.setItem('camp' + i, b.checked ? '1' : '0'); } catch (e) {}
+    });
+  });
+</script>
+</body>
+</html>
